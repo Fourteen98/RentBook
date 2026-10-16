@@ -2,3 +2,54 @@
 
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/forms';
+
+/*
+ * RentBook design tokens — Palette A "Forest and soft gold".
+ * Every colour in the app comes from here. Components use the semantic names
+ * (bg-brand-600, text-ink, border-line …), never raw hex values, so changing a
+ * value below re-themes the whole app.
+ */
+@theme {
+  --color-brand-50: #eef5f1;
+  --color-brand-100: #d5e7dd;
+  --color-brand-200: #adcfbd;
+  --color-brand-300: #7fb29a;
+  --color-brand-400: #4f8d74;
+  --color-brand-500: #3a7a61;
+  --color-brand-600: #2f6b55; /* primary actions */
+  --color-brand-700: #275845; /* primary hover */
+  --color-brand-800: #1f4d3c; /* text on brand-50/100 */
+  --color-brand-900: #173a2e;
+
+  /* Gold: fills and badges only. Never gold-500 text on white (too faint). */
+  --color-accent-50: #faf5e6;
+  --color-accent-100: #f6eed8;
+  --color-accent-200: #eddcb0;
+  --color-accent-500: #c9a54c;
+  --color-accent-700: #6e5617; /* gold-family text */
+
+  --color-canvas: #f7f6f2; /* page background */
+  --color-surface: #ffffff; /* cards, sheets */
+  --color-line: #e7e4dc; /* borders and dividers */
+  --color-ink: #1f2421; /* body text */
+  --color-ink-muted: #6b706c; /* secondary text */
+
+  --color-success: #2f7d4f;
+  --color-warning: #8a6a1c;
+  --color-danger: #b4432f;
+  --color-danger-50: #fbece8;
+
+  /* System fonts: nothing to download, which matters on 3G. */
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-canvas text-ink antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 2px;
+  }
+}
